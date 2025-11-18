@@ -24,41 +24,158 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for Groww-like styling
+# Custom CSS for Groww-like styling - FULLY CUSTOMIZABLE!
 st.markdown("""
 <style>
+    /* Hide Streamlit default elements */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* Main header - Groww green */
     .main-header {
         font-size: 2.5rem;
-        font-weight: bold;
+        font-weight: 700;
         color: #00d09c;
         margin-bottom: 0.5rem;
+        letter-spacing: -0.5px;
     }
+    
+    /* Subtitle */
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #666;
         margin-bottom: 2rem;
+        font-weight: 400;
     }
+    
+    /* Disclaimer box - Orange warning */
     .disclaimer {
-        background-color: #fff4e6;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-left: 4px solid #ff9800;
+        background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+        padding: 1.2rem;
+        border-radius: 12px;
+        border-left: 5px solid #ff9800;
         margin-bottom: 1.5rem;
+        box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
     }
+    
+    /* Info box - Blue */
     .info-box {
-        background-color: #e3f2fd;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-left: 4px solid #2196f3;
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        padding: 1.2rem;
+        border-radius: 12px;
+        border-left: 5px solid #2196f3;
         margin-bottom: 1rem;
+        box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
     }
+    
+    /* Buttons - Full width, Groww green */
     .stButton>button {
         width: 100%;
+        background-color: #00d09c;
+        color: white;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
     }
+    
+    .stButton>button:hover {
+        background-color: #00b887;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 208, 156, 0.3);
+    }
+    
+    /* Source link - Groww green */
     .source-link {
         font-size: 0.9rem;
         color: #00d09c;
         margin-top: 0.5rem;
+        font-weight: 500;
+    }
+    
+    .source-link a {
+        color: #00d09c;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    
+    .source-link a:hover {
+        color: #00b887;
+        text-decoration: underline;
+    }
+    
+    /* Chat message bubbles - Custom styling */
+    .stChatMessage {
+        padding: 1rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+    
+    /* User messages - Right aligned, green background */
+    div[data-testid="stChatMessage"]:has([data-testid="stChatMessageUser"]) {
+        background-color: #f0f9f7;
+        border-left: 4px solid #00d09c;
+    }
+    
+    /* Assistant messages - Left aligned, white background */
+    div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAssistant"]) {
+        background-color: #ffffff;
+        border-left: 4px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    /* Chat input - Groww green border */
+    .stChatInputContainer {
+        border: 2px solid #00d09c;
+        border-radius: 12px;
+        padding: 0.5rem;
+    }
+    
+    /* Sidebar styling */
+    .css-1d391kg {
+        background-color: #f8f9fa;
+    }
+    
+    /* Main container */
+    .main .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 1rem;
+        color: #666;
+        font-size: 0.85rem;
+    }
+    
+    /* Loading spinner - Groww green */
+    .stSpinner > div {
+        border-color: #00d09c;
+    }
+    
+    /* Success/Error messages */
+    .stSuccess {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+    }
+    
+    .stError {
+        background-color: #ffebee;
+        border-left: 4px solid #f44336;
+    }
+    
+    /* Smooth animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .stChatMessage {
+        animation: fadeIn 0.3s ease-in;
     }
 </style>
 """, unsafe_allow_html=True)
