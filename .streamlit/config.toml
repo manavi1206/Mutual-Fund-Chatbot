@@ -1,9 +1,9 @@
 [theme]
-# Groww brand colors
+# Groww brand colors - Pastel green theme
 primaryColor = "#00d09c"  # Groww green
-backgroundColor = "#ffffff"  # White background
-secondaryBackgroundColor = "#f8f9fa"  # Light gray sidebar
-textColor = "#262730"  # Dark gray text
+backgroundColor = "#f0fdf9"  # Light pastel green (matches gradient)
+secondaryBackgroundColor = "#ffffff"  # White for cards
+textColor = "#1a1a1a"  # Dark text
 font = "sans serif"
 
 [server]
