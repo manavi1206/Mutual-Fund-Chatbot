@@ -117,13 +117,15 @@ st.markdown("""
     }
     
     .suggestions-title {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 600;
-        color: #1a1a1a;
-        margin-bottom: 1rem;
+        color: #666;
+        margin-bottom: 1.25rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: #888;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     
     /* Messages area - centered */
@@ -170,28 +172,41 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     
-    /* Suggestion buttons in sidebar */
+    /* Suggestion buttons in sidebar - better styling */
+    .suggestions-sidebar .stButton {
+        width: 100%;
+        margin: 0.75rem 0;
+    }
+    
     .suggestions-sidebar .stButton > button {
-        background: white !important;
-        border: 1px solid #e5e5e5 !important;
+        background: #f8f9fa !important;
+        border: 1.5px solid #e5e5e5 !important;
         border-radius: 12px !important;
-        padding: 1rem !important;
+        padding: 1rem 1.25rem !important;
         text-align: left !important;
         color: #1a1a1a !important;
         font-size: 0.9rem !important;
         font-weight: 400 !important;
         width: 100% !important;
-        margin: 0.5rem 0 !important;
-        display: block !important;
-        transition: all 0.2s !important;
-        box-shadow: none !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
     }
     
     .suggestions-sidebar .stButton > button:hover {
         border-color: #00d09c !important;
-        background: #f0fdf9 !important;
+        background: white !important;
         transform: translateX(4px) !important;
         color: #1a1a1a !important;
+        box-shadow: 0 2px 8px rgba(0, 208, 156, 0.15) !important;
+    }
+    
+    .suggestions-sidebar .stButton > button:active {
+        transform: translateX(2px) !important;
     }
     
     /* Chat messages */
@@ -379,7 +394,7 @@ st.markdown('<div class="main-wrapper">', unsafe_allow_html=True)
 
 # Left sidebar for suggestions
 st.markdown('<div class="suggestions-sidebar">', unsafe_allow_html=True)
-st.markdown('<div class="suggestions-title">💡 Suggested Questions</div>', unsafe_allow_html=True)
+st.markdown('<div class="suggestions-title"><span>💡</span> SUGGESTED QUESTIONS</div>', unsafe_allow_html=True)
 
 suggestions = [
     ("📊", "What is the expense ratio of HDFC Large Cap Fund?"),
