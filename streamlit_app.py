@@ -1,6 +1,6 @@
 """
 Streamlit UI for HDFC Mutual Fund FAQ Assistant
-Modern, clean design inspired by SayHalo with Groww colors
+Clean, modern, professional design
 """
 import streamlit as st
 import os
@@ -23,273 +23,223 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Modern, clean CSS - SayHalo inspired with Groww colors
+# Clean, modern CSS
 st.markdown("""
 <style>
-    /* Hide all Streamlit default elements */
+    /* Hide Streamlit defaults */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     .stDeployButton {display: none;}
     
-    /* Full page gradient background - Light pastel green tones */
+    /* Full page - subtle gradient */
     .stApp {
-        background: linear-gradient(135deg, #f0fdf9 0%, #e0faf4 25%, #d1f7ef 50%, #c2f4ea 75%, #b3f1e5 100%);
+        background: linear-gradient(180deg, #f0fdf9 0%, #e8faf6 50%, #e0f7f3 100%);
         min-height: 100vh;
     }
     
-    /* Main container - Large rounded card */
+    /* Main container */
     .main .block-container {
-        max-width: 900px;
-        padding: 2rem 1rem;
-        margin: 0 auto;
+        max-width: 1000px;
+        padding: 1rem;
+        padding-top: 2rem;
     }
     
-    /* Chat container - Rounded card with shadow */
-    .chat-container {
+    /* Chat container - clean white card */
+    .chat-wrapper {
         background: white;
-        border-radius: 24px;
-        padding: 3rem 2.5rem;
-        box-shadow: 0 20px 60px rgba(0, 208, 156, 0.15);
-        margin: 2rem auto;
-        min-height: 600px;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        margin-bottom: 1rem;
+        min-height: 70vh;
         display: flex;
         flex-direction: column;
     }
     
-    /* Header section */
-    .header-section {
+    /* Header */
+    .app-header {
         text-align: center;
-        margin-bottom: 3rem;
+        padding: 1.5rem 0 2rem 0;
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 2rem;
     }
     
-    .logo-icon {
-        width: 64px;
-        height: 64px;
-        background: linear-gradient(135deg, #00d09c 0%, #00b887 100%);
-        border-radius: 16px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 8px 24px rgba(0, 208, 156, 0.3);
-    }
-    
-    .greeting-text {
-        font-size: 2rem;
+    .app-title {
+        font-size: 1.75rem;
         font-weight: 700;
-        color: #1a1a1a;
-        margin: 0.5rem 0;
+        color: #00d09c;
+        margin: 0;
         letter-spacing: -0.5px;
     }
     
-    .subtitle-text {
-        font-size: 1.1rem;
-        color: #666;
-        margin: 0.5rem 0 1rem 0;
-        font-weight: 400;
-    }
-    
-    .description-text {
+    .app-subtitle {
         font-size: 0.95rem;
-        color: #888;
-        line-height: 1.6;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
-    /* Topic cards section */
-    .topics-container {
-        display: flex;
-        gap: 1rem;
-        margin: 2rem 0;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .topic-card {
-        flex: 1;
-        min-width: 200px;
-        background: #f8f9fa;
-        border-radius: 16px;
-        padding: 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        text-align: center;
-    }
-    
-    .topic-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0, 208, 156, 0.2);
-        border-color: #00d09c;
-        background: white;
-    }
-    
-    .topic-icon {
-        width: 48px;
-        height: 48px;
-        background: linear-gradient(135deg, #00d09c 0%, #00b887 100%);
-        border-radius: 12px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .topic-title {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin: 0.5rem 0;
-    }
-    
-    .topic-subtitle {
-        font-size: 0.85rem;
-        color: #888;
-        margin-top: 0.25rem;
+        color: #666;
+        margin-top: 0.5rem;
     }
     
     /* Chat messages area */
-    .chat-messages {
+    .messages-area {
         flex: 1;
         overflow-y: auto;
-        margin: 2rem 0;
         padding: 1rem 0;
-        min-height: 300px;
+        margin-bottom: 1rem;
     }
     
-    /* Custom chat message styling */
+    /* Chat message styling */
     .stChatMessage {
-        margin-bottom: 1.5rem;
-        animation: fadeIn 0.3s ease-in;
+        margin-bottom: 1.25rem;
     }
     
     /* User message */
     div[data-testid="stChatMessage"]:has([data-testid="stChatMessageUser"]) {
-        background: linear-gradient(135deg, #f0fdf9 0%, #e0faf4 100%);
-        border-radius: 18px;
+        background: linear-gradient(135deg, #f0fdf9 0%, #e8faf6 100%);
+        border-radius: 16px;
         padding: 1rem 1.25rem;
-        border-left: 4px solid #00d09c;
+        border-left: 3px solid #00d09c;
     }
     
     /* Assistant message */
     div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAssistant"]) {
-        background: white;
-        border-radius: 18px;
-        padding: 1rem 1.25rem;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-    
-    /* Input bar section */
-    .input-container {
-        position: sticky;
-        bottom: 0;
-        background: white;
-        padding: 1.5rem 0 0 0;
-        border-top: 1px solid #e0e0e0;
-        margin-top: 2rem;
-    }
-    
-    /* Chat input styling */
-    .stChatInputContainer {
-        border: 2px solid #e0e0e0;
+        background: #fafafa;
         border-radius: 16px;
-        padding: 0.75rem 1rem;
-        background: #f8f9fa;
-        transition: all 0.3s ease;
-    }
-    
-    .stChatInputContainer:focus-within {
-        border-color: #00d09c;
-        background: white;
-        box-shadow: 0 0 0 4px rgba(0, 208, 156, 0.1);
+        padding: 1rem 1.25rem;
+        border: 1px solid #e5e5e5;
     }
     
     /* Source link */
     .source-link {
-        font-size: 0.85rem;
-        color: #00d09c;
         margin-top: 0.75rem;
-        font-weight: 500;
+        padding-top: 0.75rem;
+        border-top: 1px solid #e5e5e5;
     }
     
     .source-link a {
         color: #00d09c;
         text-decoration: none;
-        transition: color 0.2s;
+        font-size: 0.9rem;
+        font-weight: 500;
     }
     
     .source-link a:hover {
-        color: #00b887;
         text-decoration: underline;
     }
     
-    /* Animations */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Input area */
+    .input-area {
+        border-top: 1px solid #e5e5e5;
+        padding-top: 1.5rem;
+        margin-top: auto;
     }
     
-    /* Welcome message when no chat */
-    .welcome-section {
-        text-align: center;
-        padding: 2rem 0;
-    }
-    
-    /* Disclaimer - subtle */
-    .disclaimer-box {
-        background: #fff4e6;
+    .stChatInputContainer {
+        border: 2px solid #e0e0e0;
         border-radius: 12px;
+        background: #fafafa;
+    }
+    
+    .stChatInputContainer:focus-within {
+        border-color: #00d09c;
+        background: white;
+    }
+    
+    /* Welcome section */
+    .welcome-box {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: #f8f9fa;
+        border-radius: 16px;
+        margin: 2rem 0;
+    }
+    
+    .welcome-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 0.75rem;
+    }
+    
+    .welcome-text {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+    }
+    
+    /* Quick action buttons */
+    .quick-actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+    }
+    
+    .quick-btn {
+        background: white;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 0.75rem 1.25rem;
+        color: #1a1a1a;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .quick-btn:hover {
+        border-color: #00d09c;
+        color: #00d09c;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 208, 156, 0.15);
+    }
+    
+    /* Disclaimer */
+    .disclaimer {
+        background: #fff4e6;
+        border-left: 3px solid #ff9800;
+        border-radius: 8px;
         padding: 1rem;
         margin: 1.5rem 0;
-        border-left: 3px solid #ff9800;
         font-size: 0.85rem;
         color: #666;
+    }
+    
+    /* Footer */
+    .app-footer {
+        text-align: center;
+        color: #888;
+        font-size: 0.85rem;
+        padding: 1rem 0;
+    }
+    
+    /* Hide sidebar */
+    section[data-testid="stSidebar"] {
+        display: none;
+    }
+    
+    /* Button styling */
+    .stButton > button {
+        background: #00d09c;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 1.25rem;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .stButton > button:hover {
+        background: #00b887;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 208, 156, 0.3);
     }
     
     /* Loading spinner */
     .stSpinner > div {
         border-color: #00d09c;
-    }
-    
-    /* Hide sidebar completely */
-    section[data-testid="stSidebar"] {
-        display: none;
-    }
-    
-    /* Topic buttons - styled like cards */
-    .stButton > button {
-        background: #f8f9fa;
-        border: 2px solid transparent;
-        border-radius: 16px;
-        padding: 1.5rem;
-        color: #1a1a1a;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        height: auto;
-        white-space: normal;
-        line-height: 1.6;
-    }
-    
-    .stButton > button:hover {
-        background: white;
-        border-color: #00d09c;
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0, 208, 156, 0.2);
-    }
-    
-    .stButton > button:focus {
-        box-shadow: 0 0 0 4px rgba(0, 208, 156, 0.1);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -313,49 +263,70 @@ if 'rag_system' not in st.session_state:
             st.info("💡 Make sure GEMINI_API_KEY is set in Streamlit secrets")
             st.stop()
 
-# Main chat container
-st.markdown('<div class="chat-container">', unsafe_allow_html=True)
+# Main chat wrapper
+st.markdown('<div class="chat-wrapper">', unsafe_allow_html=True)
 
-# Header section (only show when no messages)
+# Header
+st.markdown("""
+<div class="app-header">
+    <div class="app-title">💼 HDFC Mutual Fund FAQ Assistant</div>
+    <div class="app-subtitle">Get instant, factual answers about HDFC mutual fund schemes</div>
+</div>
+""", unsafe_allow_html=True)
+
+# Messages area
+st.markdown('<div class="messages-area">', unsafe_allow_html=True)
+
+# Welcome message (only if no messages)
 if len(st.session_state.messages) == 0:
     st.markdown("""
-    <div class="header-section">
-        <div class="logo-icon">💼</div>
-        <div class="greeting-text">Hi! 👋</div>
-        <div class="subtitle-text">Can I help you with HDFC Mutual Funds?</div>
-        <div class="description-text">
-            Ready to assist you with factual information about HDFC mutual fund schemes. 
-            Ask me about expense ratios, exit loads, minimum SIP, fund managers, and more!
+    <div class="welcome-box">
+        <div class="welcome-title">👋 Welcome!</div>
+        <div class="welcome-text">
+            Ask me anything about HDFC mutual funds. I can help you with expense ratios, 
+            exit loads, minimum SIP amounts, fund managers, investment strategies, and more.
+        </div>
+        <div class="quick-actions">
+            <div class="quick-btn" onclick="this.style.display='none'">📊 Expense Ratio</div>
+            <div class="quick-btn" onclick="this.style.display='none'">💰 Minimum SIP</div>
+            <div class="quick-btn" onclick="this.style.display='none'">📈 Fund Manager</div>
+            <div class="quick-btn" onclick="this.style.display='none'">🚪 Exit Load</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Topic cards
-    col1, col2, col3 = st.columns(3)
+    # Quick action buttons (using Streamlit buttons)
+    col1, col2, col3, col4 = st.columns(4)
     
-    topics = [
-        ("📊", "Expense Ratio", "Fund Costs", "What is the expense ratio of HDFC Large Cap Fund?"),
-        ("💰", "Minimum SIP", "Investment Amount", "What is the minimum SIP amount?"),
-        ("📈", "Fund Manager", "Who's Managing", "Who manages the HDFC Flexi Cap Fund?"),
-    ]
+    with col1:
+        if st.button("📊 Expense Ratio", use_container_width=True, key="q1"):
+            st.session_state.messages.append({"role": "user", "content": "What is the expense ratio of HDFC Large Cap Fund?"})
+            st.rerun()
     
-    for i, (icon, title, subtitle, question) in enumerate(topics):
-        with [col1, col2, col3][i]:
-            if st.button(f"{icon}\n\n**{title}**\n{subtitle}", use_container_width=True, key=f"topic_{i}"):
-                st.session_state.messages.append({"role": "user", "content": question})
-                st.rerun()
+    with col2:
+        if st.button("💰 Minimum SIP", use_container_width=True, key="q2"):
+            st.session_state.messages.append({"role": "user", "content": "What is the minimum SIP amount?"})
+            st.rerun()
+    
+    with col3:
+        if st.button("📈 Fund Manager", use_container_width=True, key="q3"):
+            st.session_state.messages.append({"role": "user", "content": "Who manages the HDFC Flexi Cap Fund?"})
+            st.rerun()
+    
+    with col4:
+        if st.button("🚪 Exit Load", use_container_width=True, key="q4"):
+            st.session_state.messages.append({"role": "user", "content": "What is the exit load for HDFC ELSS?"})
+            st.rerun()
     
     # Disclaimer
     st.markdown("""
-    <div class="disclaimer-box">
+    <div class="disclaimer">
         ⚠️ <strong>Facts-Only Assistant</strong> - This chatbot provides factual information only, not investment advice. 
         For personalized guidance, consult a SEBI-registered financial advisor.
     </div>
     """, unsafe_allow_html=True)
 
-# Chat messages
-st.markdown('<div class="chat-messages">', unsafe_allow_html=True)
-
+# Display chat messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
@@ -366,8 +337,8 @@ for message in st.session_state.messages:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Chat input
-st.markdown('<div class="input-container">', unsafe_allow_html=True)
+# Input area
+st.markdown('<div class="input-area">', unsafe_allow_html=True)
 
 if prompt := st.chat_input("Ask about HDFC mutual funds..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -412,7 +383,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
-<div style='text-align: center; color: #888; padding: 2rem 0; font-size: 0.85rem;'>
+<div class="app-footer">
     🔒 No PII collected | 📊 26 official sources | 📅 Updated: November 2025
 </div>
 """, unsafe_allow_html=True)
