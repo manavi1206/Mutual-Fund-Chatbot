@@ -98,7 +98,7 @@ st.markdown("""
         line-height: 1.2;
     }
     
-    /* Content area - starts right after header */
+    /* Content area - starts right after header, NO gap */
     .content-wrapper {
         margin-top: 72px; /* Header height */
         display: flex;
@@ -111,16 +111,16 @@ st.markdown("""
     .messages-area {
         flex: 1;
         overflow-y: auto;
-        padding: 2rem;
+        padding: 1.5rem 2rem 100px 2rem;
         background: #fafafa;
     }
     
-    /* Welcome section */
+    /* Welcome section - NO top padding */
     .welcome-section {
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem 0 1rem;
     }
     
     .welcome-icon {
@@ -149,31 +149,29 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     
-    /* Suggestion buttons */
-    .suggestions-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: 1.5rem;
+    /* Style suggestion buttons to look like cards - only in welcome section */
+    .messages-area .stButton > button {
+        background: white !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 12px !important;
+        padding: 1rem 1.25rem !important;
+        text-align: left !important;
+        color: #1a1a1a !important;
+        font-size: 0.9rem !important;
+        font-weight: 400 !important;
+        width: 100% !important;
+        max-width: 600px !important;
+        margin: 0.5rem auto !important;
+        display: block !important;
+        transition: all 0.2s !important;
+        box-shadow: none !important;
     }
     
-    .suggestion-item {
-        background: white;
-        border: 1px solid #e5e5e5;
-        border-radius: 12px;
-        padding: 1rem 1.25rem;
-        text-align: left;
-        color: #1a1a1a;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-weight: 400;
-    }
-    
-    .suggestion-item:hover {
-        border-color: #00d09c;
-        background: #f0fdf9;
-        transform: translateX(4px);
+    .messages-area .stButton > button:hover {
+        border-color: #00d09c !important;
+        background: #f0fdf9 !important;
+        transform: translateX(4px) !important;
+        color: #1a1a1a !important;
     }
     
     /* Disclaimer */
@@ -247,29 +245,33 @@ st.markdown("""
         text-decoration: underline;
     }
     
-    /* Fixed input area */
+    /* Fixed input area - BIGGER and truly fixed */
     .input-area {
         background: white;
         border-top: 1px solid #e5e5e5;
-        padding: 1.25rem 2rem;
-        position: sticky;
+        padding: 1.5rem 2rem;
+        position: fixed;
         bottom: 0;
-        z-index: 100;
-        box-shadow: 0 -1px 3px rgba(0,0,0,0.05);
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
     }
     
     .stChatInputContainer {
-        border: 1.5px solid #e5e5e5;
-        border-radius: 24px;
+        border: 2px solid #e5e5e5;
+        border-radius: 28px;
         background: #fafafa;
-        padding: 0.75rem 1.25rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        min-height: 56px;
         transition: all 0.2s;
     }
     
     .stChatInputContainer:focus-within {
         border-color: #00d09c;
         background: white;
-        box-shadow: 0 0 0 3px rgba(0, 208, 156, 0.1);
+        box-shadow: 0 0 0 4px rgba(0, 208, 156, 0.15);
     }
     
     /* Animations */
@@ -355,19 +357,10 @@ if len(st.session_state.messages) == 0:
             Ask me anything about HDFC mutual funds. I can help with expense ratios, 
             exit loads, minimum SIP amounts, fund managers, and more.
         </div>
-        <div class="suggestions-list">
-            <div class="suggestion-item">📊 What is the expense ratio of HDFC Large Cap Fund?</div>
-            <div class="suggestion-item">💰 What is the minimum SIP amount?</div>
-            <div class="suggestion-item">📈 Who manages the HDFC Flexi Cap Fund?</div>
-            <div class="suggestion-item">🚪 What is the exit load for HDFC ELSS?</div>
-        </div>
-        <div class="disclaimer-box">
-            ⚠️ <strong>Facts-Only Assistant</strong> - Provides factual information only, not investment advice.
-        </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Clickable suggestion buttons
+    # Clickable suggestion buttons (styled to look like cards)
     suggestions = [
         ("📊", "What is the expense ratio of HDFC Large Cap Fund?"),
         ("💰", "What is the minimum SIP amount?"),
@@ -379,6 +372,13 @@ if len(st.session_state.messages) == 0:
         if st.button(f"{icon} {question}", key=f"sugg_{i}", use_container_width=False):
             st.session_state.messages.append({"role": "user", "content": question})
             st.rerun()
+    
+    # Disclaimer
+    st.markdown("""
+    <div class="disclaimer-box" style="max-width: 600px; margin: 1.5rem auto 0 auto;">
+        ⚠️ <strong>Facts-Only Assistant</strong> - Provides factual information only, not investment advice.
+    </div>
+    """, unsafe_allow_html=True)
 
 # Display chat messages
 for message in st.session_state.messages:
