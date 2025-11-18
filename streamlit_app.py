@@ -1,6 +1,6 @@
 """
 Streamlit UI for HDFC Mutual Fund FAQ Assistant
-Clean, professional chatbot design
+Clean, professional layout with centered content and left suggestions
 """
 import streamlit as st
 import os
@@ -23,7 +23,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Professional chatbot UI
+# Professional layout CSS
 st.markdown("""
 <style>
     /* Remove all default padding/margins */
@@ -98,29 +98,50 @@ st.markdown("""
         line-height: 1.2;
     }
     
-    /* Content area - starts right after header, NO gap */
-    .content-wrapper {
-        margin-top: 72px; /* Header height */
+    /* Main content wrapper */
+    .main-wrapper {
+        margin-top: 72px;
         display: flex;
-        flex-direction: column;
         height: calc(100vh - 72px);
         background: #fafafa;
     }
     
-    /* Messages area */
-    .messages-area {
-        flex: 1;
+    /* Left sidebar for suggestions */
+    .suggestions-sidebar {
+        width: 320px;
+        background: white;
+        border-right: 1px solid #e5e5e5;
+        padding: 2rem 1.5rem;
         overflow-y: auto;
-        padding: 1.5rem 2rem 100px 2rem;
-        background: #fafafa;
+        flex-shrink: 0;
     }
     
-    /* Welcome section - NO top padding */
-    .welcome-section {
+    .suggestions-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #888;
+    }
+    
+    /* Messages area - centered */
+    .messages-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 2rem;
+        background: #fafafa;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Welcome section - centered */
+    .welcome-center {
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
-        padding: 1.5rem 1rem 0 1rem;
+        padding: 2rem 0;
     }
     
     .welcome-icon {
@@ -149,41 +170,28 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     
-    /* Style suggestion buttons to look like cards - only in welcome section */
-    .messages-area .stButton > button {
+    /* Suggestion buttons in sidebar */
+    .suggestions-sidebar .stButton > button {
         background: white !important;
         border: 1px solid #e5e5e5 !important;
         border-radius: 12px !important;
-        padding: 1rem 1.25rem !important;
+        padding: 1rem !important;
         text-align: left !important;
         color: #1a1a1a !important;
         font-size: 0.9rem !important;
         font-weight: 400 !important;
         width: 100% !important;
-        max-width: 600px !important;
-        margin: 0.5rem auto !important;
+        margin: 0.5rem 0 !important;
         display: block !important;
         transition: all 0.2s !important;
         box-shadow: none !important;
     }
     
-    .messages-area .stButton > button:hover {
+    .suggestions-sidebar .stButton > button:hover {
         border-color: #00d09c !important;
         background: #f0fdf9 !important;
         transform: translateX(4px) !important;
         color: #1a1a1a !important;
-    }
-    
-    /* Disclaimer */
-    .disclaimer-box {
-        background: #fff4e6;
-        border-left: 3px solid #ff9800;
-        border-radius: 8px;
-        padding: 0.875rem 1rem;
-        font-size: 0.8rem;
-        color: #666;
-        line-height: 1.5;
-        text-align: left;
     }
     
     /* Chat messages */
@@ -245,7 +253,23 @@ st.markdown("""
         text-decoration: underline;
     }
     
-    /* Fixed input area - BIGGER and truly fixed */
+    /* Fixed disclaimer at bottom */
+    .fixed-disclaimer {
+        position: fixed;
+        bottom: 100px;
+        left: 0;
+        right: 0;
+        background: #fff4e6;
+        border-top: 1px solid #ff9800;
+        padding: 0.75rem 2rem;
+        font-size: 0.8rem;
+        color: #666;
+        z-index: 999;
+        text-align: center;
+        box-shadow: 0 -1px 3px rgba(0,0,0,0.05);
+    }
+    
+    /* Fixed input area - BIGGER */
     .input-area {
         background: white;
         border-top: 1px solid #e5e5e5;
@@ -274,6 +298,11 @@ st.markdown("""
         box-shadow: 0 0 0 4px rgba(0, 208, 156, 0.15);
     }
     
+    /* Add padding to messages for fixed elements */
+    .messages-container {
+        padding-bottom: 180px !important;
+    }
+    
     /* Animations */
     @keyframes fadeIn {
         from {
@@ -292,20 +321,24 @@ st.markdown("""
     }
     
     /* Scrollbar */
-    .messages-area::-webkit-scrollbar {
+    .messages-container::-webkit-scrollbar,
+    .suggestions-sidebar::-webkit-scrollbar {
         width: 6px;
     }
     
-    .messages-area::-webkit-scrollbar-track {
+    .messages-container::-webkit-scrollbar-track,
+    .suggestions-sidebar::-webkit-scrollbar-track {
         background: transparent;
     }
     
-    .messages-area::-webkit-scrollbar-thumb {
+    .messages-container::-webkit-scrollbar-thumb,
+    .suggestions-sidebar::-webkit-scrollbar-thumb {
         background: #d0d0d0;
         border-radius: 3px;
     }
     
-    .messages-area::-webkit-scrollbar-thumb:hover {
+    .messages-container::-webkit-scrollbar-thumb:hover,
+    .suggestions-sidebar::-webkit-scrollbar-thumb:hover {
         background: #b0b0b0;
     }
 </style>
@@ -330,7 +363,7 @@ if 'rag_system' not in st.session_state:
             st.info("💡 Make sure GEMINI_API_KEY is set in Streamlit secrets")
             st.stop()
 
-# Fixed header - NO whitespace
+# Fixed header
 st.markdown("""
 <div class="fixed-header">
     <div class="logo-box">💼</div>
@@ -341,42 +374,40 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Content wrapper - starts right after header
-st.markdown('<div class="content-wrapper">', unsafe_allow_html=True)
+# Main wrapper
+st.markdown('<div class="main-wrapper">', unsafe_allow_html=True)
 
-# Messages area
-st.markdown('<div class="messages-area">', unsafe_allow_html=True)
+# Left sidebar for suggestions
+st.markdown('<div class="suggestions-sidebar">', unsafe_allow_html=True)
+st.markdown('<div class="suggestions-title">💡 Suggested Questions</div>', unsafe_allow_html=True)
+
+suggestions = [
+    ("📊", "What is the expense ratio of HDFC Large Cap Fund?"),
+    ("💰", "What is the minimum SIP amount?"),
+    ("📈", "Who manages the HDFC Flexi Cap Fund?"),
+    ("🚪", "What is the exit load for HDFC ELSS?"),
+]
+
+for i, (icon, question) in enumerate(suggestions):
+    if st.button(f"{icon} {question}", key=f"sugg_{i}", use_container_width=True):
+        st.session_state.messages.append({"role": "user", "content": question})
+        st.rerun()
+
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Messages container - centered
+st.markdown('<div class="messages-container">', unsafe_allow_html=True)
 
 # Welcome message (only if no messages)
 if len(st.session_state.messages) == 0:
     st.markdown("""
-    <div class="welcome-section">
+    <div class="welcome-center">
         <div class="welcome-icon">👋</div>
         <div class="welcome-title">Hi! How can I help you?</div>
         <div class="welcome-desc">
             Ask me anything about HDFC mutual funds. I can help with expense ratios, 
             exit loads, minimum SIP amounts, fund managers, and more.
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Clickable suggestion buttons (styled to look like cards)
-    suggestions = [
-        ("📊", "What is the expense ratio of HDFC Large Cap Fund?"),
-        ("💰", "What is the minimum SIP amount?"),
-        ("📈", "Who manages the HDFC Flexi Cap Fund?"),
-        ("🚪", "What is the exit load for HDFC ELSS?"),
-    ]
-    
-    for i, (icon, question) in enumerate(suggestions):
-        if st.button(f"{icon} {question}", key=f"sugg_{i}", use_container_width=False):
-            st.session_state.messages.append({"role": "user", "content": question})
-            st.rerun()
-    
-    # Disclaimer
-    st.markdown("""
-    <div class="disclaimer-box" style="max-width: 600px; margin: 1.5rem auto 0 auto;">
-        ⚠️ <strong>Facts-Only Assistant</strong> - Provides factual information only, not investment advice.
     </div>
     """, unsafe_allow_html=True)
 
@@ -390,6 +421,14 @@ for message in st.session_state.messages:
                        unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Fixed disclaimer above input
+st.markdown("""
+<div class="fixed-disclaimer">
+    ⚠️ <strong>Facts-Only Assistant</strong> - Provides factual information only, not investment advice.
+</div>
+""", unsafe_allow_html=True)
 
 # Fixed input area
 st.markdown('<div class="input-area">', unsafe_allow_html=True)
@@ -432,5 +471,4 @@ if prompt := st.chat_input("Type your message..."):
                     "content": error_msg
                 })
 
-st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
