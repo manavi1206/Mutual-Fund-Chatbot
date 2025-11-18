@@ -68,3 +68,6 @@ build/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Vercel (not using Vercel - using Streamlit instead)
+.vercel/
