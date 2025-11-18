@@ -52,7 +52,7 @@ st.markdown("""
         background: #ffffff;
     }
     
-    /* Top bar - minimal */
+    /* Top bar - minimal, aligned with input */
     .top-bar {
         position: fixed;
         top: 0;
@@ -61,9 +61,6 @@ st.markdown("""
         height: 60px;
         background: white;
         border-bottom: 1px solid #e5e7eb;
-        display: flex;
-        align-items: center;
-        padding: 0 24px;
         z-index: 1000;
         box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
@@ -75,6 +72,8 @@ st.markdown("""
         max-width: 1200px;
         margin: 0 auto;
         width: 100%;
+        padding: 0 24px;
+        height: 100%;
     }
     
     .logo {
@@ -97,7 +96,7 @@ st.markdown("""
         margin: 0;
     }
     
-    /* Main chat area */
+    /* Main chat area - aligned with header and input */
     .chat-area {
         margin-top: 60px;
         flex: 1;
@@ -110,6 +109,7 @@ st.markdown("""
         margin-left: auto;
         margin-right: auto;
         width: 100%;
+        box-sizing: border-box;
     }
     
     /* Welcome message */
@@ -145,32 +145,6 @@ st.markdown("""
         line-height: 1.5;
     }
     
-    /* Suggestion chips */
-    .suggestions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    
-    .suggestion-chip {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        border-radius: 20px;
-        padding: 10px 16px;
-        font-size: 0.875rem;
-        color: #374151;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-weight: 400;
-    }
-    
-    .suggestion-chip:hover {
-        background: #f3f4f6;
-        border-color: #d1d5db;
-    }
     
     /* Chat messages */
     .message-wrapper {
@@ -265,6 +239,7 @@ st.markdown("""
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
+        padding: 0 24px;
     }
     
     .stChatInputContainer {
@@ -283,9 +258,9 @@ st.markdown("""
         box-shadow: 0 0 0 3px rgba(0, 208, 156, 0.1);
     }
     
-    /* Add padding to chat area for fixed input */
+    /* Add padding to chat area for fixed input and disclaimer */
     .chat-area {
-        padding-bottom: 100px !important;
+        padding-bottom: 140px !important;
     }
     
     /* Hide sidebar */
@@ -327,19 +302,30 @@ st.markdown("""
         animation: fadeIn 0.3s ease;
     }
     
-    /* Disclaimer - subtle at bottom */
+    /* Disclaimer - below input, aligned */
     .disclaimer {
         position: fixed;
-        bottom: 80px;
+        bottom: 0;
         left: 0;
         right: 0;
         background: #fff4e6;
         border-top: 1px solid #ff9800;
-        padding: 8px 24px;
+        padding: 8px 0;
         font-size: 0.75rem;
         color: #666;
         text-align: center;
-        z-index: 999;
+        z-index: 1001;
+    }
+    
+    .disclaimer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    
+    /* Adjust input wrapper to account for disclaimer */
+    .input-wrapper {
+        bottom: 40px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -386,18 +372,10 @@ if len(st.session_state.messages) == 0:
             Ask me anything about HDFC mutual funds. I can help with expense ratios, 
             exit loads, minimum SIP amounts, fund managers, and more.
         </div>
-        <div class="suggestions">
-            <div class="suggestion-chip">What is the expense ratio of HDFC Large Cap Fund?</div>
-            <div class="suggestion-chip">What is the minimum SIP amount?</div>
-            <div class="suggestion-chip">Who manages the HDFC Flexi Cap Fund?</div>
-            <div class="suggestion-chip">What is the exit load for HDFC ELSS?</div>
-        </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Clickable suggestion buttons
-    col1, col2 = st.columns(2)
-    
+    # Clickable suggestion chips (styled as pills)
     suggestions = [
         "What is the expense ratio of HDFC Large Cap Fund?",
         "What is the minimum SIP amount?",
@@ -405,12 +383,35 @@ if len(st.session_state.messages) == 0:
         "What is the exit load for HDFC ELSS?",
     ]
     
+    # Style buttons as chips
+    st.markdown("""
+    <style>
+    .suggestions-container .stButton > button {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 20px !important;
+        padding: 10px 16px !important;
+        font-size: 0.875rem !important;
+        color: #374151 !important;
+        font-weight: 400 !important;
+        margin: 4px !important;
+        box-shadow: none !important;
+        transition: all 0.2s !important;
+    }
+    .suggestions-container .stButton > button:hover {
+        background: #f3f4f6 !important;
+        border-color: #d1d5db !important;
+    }
+    </style>
+    <div class="suggestions-container" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 700px; margin: 0 auto;">
+    """, unsafe_allow_html=True)
+    
     for i, question in enumerate(suggestions):
-        col = col1 if i % 2 == 0 else col2
-        with col:
-            if st.button(question, key=f"sugg_{i}", use_container_width=True):
-                st.session_state.messages.append({"role": "user", "content": question})
-                st.rerun()
+        if st.button(question, key=f"sugg_{i}"):
+            st.session_state.messages.append({"role": "user", "content": question})
+            st.rerun()
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -424,13 +425,6 @@ for message in st.session_state.messages:
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
-
-# Disclaimer
-st.markdown("""
-<div class="disclaimer">
-    ⚠️ Facts-Only Assistant - Provides factual information only, not investment advice.
-</div>
-""", unsafe_allow_html=True)
 
 # Input area
 st.markdown('<div class="input-wrapper"><div class="input-container">', unsafe_allow_html=True)
@@ -474,3 +468,12 @@ if prompt := st.chat_input("Message HDFC MF FAQ Assistant..."):
                 })
 
 st.markdown('</div></div>', unsafe_allow_html=True)
+
+# Disclaimer - below input
+st.markdown("""
+<div class="disclaimer">
+    <div class="disclaimer-content">
+        ⚠️ Facts-Only Assistant - Provides factual information only, not investment advice.
+    </div>
+</div>
+""", unsafe_allow_html=True)
