@@ -3,7 +3,7 @@ RAG Q&A System - Generates answers from retrieved chunks
 """
 import re
 from datetime import datetime
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 
 class RAGQA:
@@ -40,12 +40,16 @@ class RAGQA:
         
         return answer
     
-    def generate_answer(self, query: str, chunks: List[Dict]) -> Dict:
+    def generate_answer(self, query: str, chunks: List[Dict], 
+                       conversation_context: Optional[Dict] = None,
+                       response_style: str = "default") -> Dict:
         """
         Generate answer from retrieved chunks
         
         Args:
             query: User query
+            conversation_context: Optional conversation context (ignored in template mode)
+            response_style: Response style (ignored in template mode)
             chunks: List of retrieved chunks with text and metadata
             
         Returns:
