@@ -97,6 +97,44 @@ npm run dev
 
 **Open**: http://localhost:3000
 
+### Alternative: Run with Streamlit (Recommended for Demo)
+
+**Single command:**
+```bash
+streamlit run streamlit_app.py
+```
+
+**Open**: http://localhost:8501
+
+**Benefits**: 
+- ✅ Single command deployment
+- ✅ No separate frontend/backend
+- ✅ Easy to deploy to Streamlit Cloud (free)
+- ✅ Perfect for Milestone 1 demo
+
+---
+
+## 🚀 Deploy to Streamlit Cloud (Free)
+
+Deploy your chatbot to the internet in 3 minutes:
+
+1. **Go to** [share.streamlit.io](https://share.streamlit.io)
+2. **Sign in** with GitHub
+3. **Click** "New app"
+4. **Select**:
+   - Repository: `manavi1206/Mutual-Fund-Chatbot`
+   - Branch: `main`
+   - Main file path: `streamlit_app.py`
+5. **Add secrets** (click "Advanced settings" → "Secrets"):
+   ```toml
+   GEMINI_API_KEY = "your_gemini_api_key_here"
+   USE_LLM = "true"
+   LLM_PROVIDER = "gemini"
+   ```
+6. **Click** "Deploy"!
+
+Your chatbot will be live at: `https://your-app-name.streamlit.app` 🎉
+
 ---
 
 ## 📚 Documentation
