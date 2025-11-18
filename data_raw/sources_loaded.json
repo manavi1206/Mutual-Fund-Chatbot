@@ -1,0 +1,227 @@
+[
+  {
+    "source_id": "amc_largecap_overview",
+    "source_title": "HDFC Large Cap Fund - Overview",
+    "source_url": "https://www.hdfcfund.com/explore/mutual-funds/hdfc-large-cap-fund/direct",
+    "source_type": "scheme_overview",
+    "scheme_tag": "LARGE_CAP",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_largecap_sid",
+    "source_title": "HDFC Large Cap Fund - SID",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/SID/2025-05/SID%20-%20HDFC%20Large%20Cap%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*1yej8bj*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5MTYkajYwJGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5MTYkajYwJGwwJGgw",
+    "source_type": "sid_pdf",
+    "scheme_tag": "LARGE_CAP",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_largecap_kim",
+    "source_title": "HDFC Large Cap Fund - KIM",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/KIM/2025-05/KIM%20-%20HDFC%20Large%20Cap%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*1xbidwo*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwMjMkajIyJGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwMjMkajIyJGwwJGgw",
+    "source_type": "kim_pdf",
+    "scheme_tag": "LARGE_CAP",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_flexicap_overview",
+    "source_title": "HDFC Flexi Cap Fund - Overview",
+    "source_url": "https://www.hdfcfund.com/explore/mutual-funds/hdfc-flexi-cap-fund/direct",
+    "source_type": "scheme_overview",
+    "scheme_tag": "FLEXI_CAP",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_flexicap_sid",
+    "source_title": "HDFC Flexi Cap Fund - SID",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/SID/2025-05/SID%20-%20HDFC%20Flexi%20Cap%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*1wxvbbf*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5MzIkajQ0JGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5MzIkajQ0JGwwJGgw",
+    "source_type": "sid_pdf",
+    "scheme_tag": "FLEXI_CAP",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_flexicap_kim",
+    "source_title": "HDFC Flexi Cap Fund - KIM",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/KIM/2025-05/KIM%20-%20HDFC%20Flexi%20Cap%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*h9tr86*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwMjkkajE2JGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwMjkkajE2JGwwJGgw",
+    "source_type": "kim_pdf",
+    "scheme_tag": "FLEXI_CAP",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_elss_overview",
+    "source_title": "HDFC TaxSaver (ELSS) - Overview",
+    "source_url": "https://www.hdfcfund.com/explore/mutual-funds/hdfc-elss-tax-saver/direct",
+    "source_type": "scheme_overview",
+    "scheme_tag": "ELSS",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_elss_sid",
+    "source_title": "HDFC TaxSaver (ELSS) - SID",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/SID/2025-05/SID%20-%20HDFC%20ELSS%20Tax%20saver%20dated%20May%2030%2C%202025_0.pdf?_gl=1*1u4eu96*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NDckajI5JGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NDckajI5JGwwJGgw",
+    "source_type": "sid_pdf",
+    "scheme_tag": "ELSS",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_elss_kim",
+    "source_title": "HDFC TaxSaver (ELSS) - KIM",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/KIM/2025-05/KIM%20-%20HDFC%20ELSS%20Tax%20saver%20dated%20May%2030%2C%202025.pdf?_gl=1*7krkp3*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwNDYkajYwJGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwNDYkajYwJGwwJGgww",
+    "source_type": "kim_pdf",
+    "scheme_tag": "ELSS",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_hybrid_overview",
+    "source_title": "HDFC Hybrid Equity Fund - Overview",
+    "source_url": "https://www.hdfcfund.com/explore/mutual-funds/hdfc-hybrid-equity-fund/direct",
+    "source_type": "scheme_overview",
+    "scheme_tag": "HYBRID",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_hybrid_sid",
+    "source_title": "HDFC Hybrid Equity Fund - SID",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/SID/2025-05/SID%20-%20HDFC%20Hybrid%20Equity%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*1gpmyl*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NzQkajIkbDAkaDA.*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NzQkajIkbDAkaDA.",
+    "source_type": "sid_pdf",
+    "scheme_tag": "HYBRID",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_hybrid_kim",
+    "source_title": "HDFC Hybrid Equity Fund - KIM",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/KIM/2025-05/KIM%20-%20HDFC%20Hybrid%20Equity%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*qvmcen*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwNTckajQ5JGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzQwNTckajQ5JGwwJGgw",
+    "source_type": "kim_pdf",
+    "scheme_tag": "HYBRID",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amc_factsheet",
+    "source_title": "HDFC Mutual Fund - Consolidated Factsheet (Oct 2025)",
+    "source_url": "https://files.hdfcfund.com/s3fs-public/2025-11/HDFC%20MF%20Factsheet%20-%20October%202025.pdf?_gl=1*1xeg2ht*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM2ODAkajUzJGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM2ODAkajUzJGwwJGgw",
+    "source_type": "factsheet_consolidated",
+    "scheme_tag": "ALL",
+    "authority": "AMC",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amfi_intro",
+    "source_title": "AMFI - Introduction to Mutual Funds",
+    "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=IntroductionMutualFunds",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "AMFI",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amfi_expense_ratio",
+    "source_title": "AMFI - Expense Ratio",
+    "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=expenseRatio",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "AMFI",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amfi_riskometer_1",
+    "source_title": "AMFI - Riskometer_Derived",
+    "source_url": "https://www.mutualfundssahihai.com/en/how-riskometer-scheme-derived/",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "MutualFundSahiHai",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amfi_riskometer_2",
+    "source_title": "AMFI - Riskometer_Where to Find",
+    "source_url": "https://www.mutualfundssahihai.com/en/what-riskometer-and-what-are-different-levels/",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "MutualFundSahiHai",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amfi_riskometer_3",
+    "source_title": "AMFI - Riskometer_SEBI",
+    "source_url": "https://www.sebi.gov.in/sebi_data/attachdocs/1457668517623.pdf",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "SEBI",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "amfi_riskometer_4",
+    "source_title": "AMFI - Riskometer",
+    "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=riskInMutualFunds",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "AMFI",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "sebi_categories",
+    "source_title": "SEBI - Mutual Fund Categorization Circular Summary",
+    "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "SEBI",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "sebi_elss_lockin",
+    "source_title": "SEBI - ELSS Lock-in Guidelines",
+    "source_url": "https://investor.sebi.gov.in/elss.html",
+    "source_type": "regulatory",
+    "scheme_tag": "ALL",
+    "authority": "SEBI",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "groww_help_overall",
+    "source_title": "Groww - Mutual Funds Help Center",
+    "source_url": "https://groww.in/help/mutual-funds",
+    "source_type": "help_page",
+    "scheme_tag": "ALL",
+    "authority": "GROWW",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "groww_cas",
+    "source_title": "Groww - How to Download CAS",
+    "source_url": "https://groww.in/help/mutual-funds/mf-track-and-switch/how-to-generate-my-consolidated-account-statement--cas--from-the-cams-website--60",
+    "source_type": "help_page",
+    "scheme_tag": "ALL",
+    "authority": "GROWW",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "groww_tax_reports",
+    "source_title": "Groww - Tax Statements / MF Reports",
+    "source_url": "https://groww.in/help/my-account/ma-others/where-can-i-get-the-tax-proof-for-section-80c",
+    "source_type": "help_page",
+    "scheme_tag": "ALL",
+    "authority": "GROWW",
+    "last_fetched_date": "11/17/2025"
+  },
+  {
+    "source_id": "groww_transaction_history",
+    "source_title": "Groww - Transaction History",
+    "source_url": "https://groww.in/help/my-account/ma-others/where-can-i-get-the-transaction-history",
+    "source_type": "help_page",
+    "scheme_tag": "ALL",
+    "authority": "GROWW",
+    "last_fetched_date": "11/17/2025"
+  }
+]

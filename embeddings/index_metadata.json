@@ -1,0 +1,9 @@
+{
+  "vector_db": "faiss",
+  "index_path": "embeddings/faiss_index.bin",
+  "metadata_path": "embeddings/faiss_metadata.json",
+  "distance_metric": "cosine",
+  "vector_count": 1886,
+  "dimension": 384,
+  "embedding_model": "all-MiniLM-L6-v2"
+}

@@ -1,0 +1,10 @@
+{
+  "source_id": "amfi_expense_ratio",
+  "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=expenseRatio",
+  "source_type": "regulatory",
+  "scheme_tag": "ALL",
+  "authority": "AMFI",
+  "http_status": 200,
+  "content_length_bytes": 152762,
+  "fetched_at": "2025-11-17"
+}

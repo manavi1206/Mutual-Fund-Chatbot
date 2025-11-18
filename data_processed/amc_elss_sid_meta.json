@@ -1,0 +1,10 @@
+{
+  "source_id": "amc_elss_sid",
+  "source_url": "https://files.hdfcfund.com/s3fs-public/SID/2025-05/SID%20-%20HDFC%20ELSS%20Tax%20saver%20dated%20May%2030%2C%202025_0.pdf?_gl=1*1u4eu96*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NDckajI5JGwwJGgw*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NDckajI5JGwwJGgw",
+  "source_type": "sid_pdf",
+  "scheme_tag": "ELSS",
+  "authority": "AMC",
+  "http_status": 200,
+  "content_length_bytes": 956795,
+  "fetched_at": "2025-11-17"
+}

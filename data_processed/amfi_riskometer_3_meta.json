@@ -1,0 +1,10 @@
+{
+  "source_id": "amfi_riskometer_3",
+  "source_url": "https://www.sebi.gov.in/sebi_data/attachdocs/1457668517623.pdf",
+  "source_type": "regulatory",
+  "scheme_tag": "ALL",
+  "authority": "SEBI",
+  "http_status": 200,
+  "content_length_bytes": 635033,
+  "fetched_at": "2025-11-17"
+}

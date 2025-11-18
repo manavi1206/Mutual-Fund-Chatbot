@@ -1,0 +1,62 @@
+/* Groww-inspired color scheme */
+:root {
+  --groww-primary: #00D09C;
+  --groww-primary-dark: #00B887;
+  --groww-text-primary: #1C1C1E;
+  --groww-text-secondary: #6B7280;
+  --groww-bg-primary: #FFFFFF;
+  --groww-bg-secondary: #F9FAFB;
+  --groww-border: #E5E7EB;
+  --groww-hover: #F3F4F6;
+  --groww-success: #10B981;
+  --groww-warning: #F59E0B;
+  --groww-error: #EF4444;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--groww-bg-primary);
+  color: var(--groww-text-primary);
+}
+
+a {
+  color: var(--groww-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--groww-primary-dark);
+  text-decoration: underline;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--groww-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--groww-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--groww-text-secondary);
+}
+

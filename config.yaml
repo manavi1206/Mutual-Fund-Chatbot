@@ -1,0 +1,83 @@
+# Configuration File for RAG Chatbot
+# This file centralizes all configuration settings
+
+# Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 8000
+  env: "development"  # "development" or "production"
+
+# CORS Configuration
+cors:
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8000"
+  # Production origins (set via ENV var ALLOWED_ORIGINS)
+  # - "https://groww.in"
+  # - "https://app.groww.in"
+
+# LLM Configuration
+llm:
+  provider: "gemini"  # "gemini" or "openai"
+  use_llm: true
+  # API keys should be set via environment variables:
+  # GEMINI_API_KEY or OPENAI_API_KEY
+
+# Retrieval Configuration
+retrieval:
+  top_k: 5
+  search_k_multiplier: 3
+  field_filter_threshold: 3
+  use_reranking: true
+
+# Scraper Configuration
+scraper:
+  max_concurrent_requests: 10
+  cache_ttl_hours: 24
+  request_timeout: 15
+  auto_rebuild_index: true
+
+# Caching Configuration
+cache:
+  enabled: true
+  ttl_seconds: 3600  # 1 hour
+  max_size: 100
+
+# Logging Configuration
+logging:
+  level: "INFO"  # "DEBUG", "INFO", "WARNING", "ERROR"
+  format: "json"  # "json" or "text"
+
+# Health Check Configuration
+health:
+  check_index_validity: true
+  check_data_freshness: true
+  data_freshness_days: 7
+
+# Input Validation
+validation:
+  max_query_length: 1000
+  min_query_length: 1
+
+# Metrics Configuration
+metrics:
+  enabled: true
+  use_database: true
+  db_path: "metrics/metrics.db"
+
+# Session Configuration
+session:
+  max_history: 20
+  max_summary_length: 500
+  use_redis: true  # Redis enabled
+  redis_host: "localhost"
+  redis_port: 6379
+
+# Redis Configuration (for caching)
+redis:
+  enabled: true
+  host: "localhost"
+  port: 6379
+  db: 1
+  decode_responses: false
+

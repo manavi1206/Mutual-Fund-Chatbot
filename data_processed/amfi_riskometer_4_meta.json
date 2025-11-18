@@ -1,0 +1,10 @@
+{
+  "source_id": "amfi_riskometer_4",
+  "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=riskInMutualFunds",
+  "source_type": "regulatory",
+  "scheme_tag": "ALL",
+  "authority": "AMFI",
+  "http_status": 200,
+  "content_length_bytes": 173530,
+  "fetched_at": "2025-11-17"
+}

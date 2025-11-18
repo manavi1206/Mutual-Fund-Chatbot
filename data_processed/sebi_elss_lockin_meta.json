@@ -1,0 +1,10 @@
+{
+  "source_id": "sebi_elss_lockin",
+  "source_url": "https://investor.sebi.gov.in/elss.html",
+  "source_type": "regulatory",
+  "scheme_tag": "ALL",
+  "authority": "SEBI",
+  "http_status": 200,
+  "content_length_bytes": 14914,
+  "fetched_at": "2025-11-17"
+}

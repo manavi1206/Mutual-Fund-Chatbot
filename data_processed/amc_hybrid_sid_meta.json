@@ -1,0 +1,10 @@
+{
+  "source_id": "amc_hybrid_sid",
+  "source_url": "https://files.hdfcfund.com/s3fs-public/SID/2025-05/SID%20-%20HDFC%20Hybrid%20Equity%20Fund%20dated%20May%2030%2C%202025.pdf?_gl=1*1gpmyl*_gcl_au*ODExODUxNDkwLjE3NjMzNzM1NzM.*_ga*MTg0MzM0MzcyMi4xNzYzMzczNTc0*_ga_9LSHX42J16*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NzQkajIkbDAkaDA.*_ga_B8ZVKN0MJ4*czE3NjMzNzM1NzMkbzEkZzEkdDE3NjMzNzM5NzQkajIkbDAkaDA.",
+  "source_type": "sid_pdf",
+  "scheme_tag": "HYBRID",
+  "authority": "AMC",
+  "http_status": 200,
+  "content_length_bytes": 984035,
+  "fetched_at": "2025-11-17"
+}

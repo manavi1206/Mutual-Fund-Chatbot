@@ -1,0 +1,10 @@
+{
+  "source_id": "sebi_categories",
+  "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes",
+  "source_type": "regulatory",
+  "scheme_tag": "ALL",
+  "authority": "SEBI",
+  "http_status": 200,
+  "content_length_bytes": 234058,
+  "fetched_at": "2025-11-17"
+}
